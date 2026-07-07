@@ -19,14 +19,18 @@ jobs:
           filter: tree:0
           fetch-depth: 0
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version: 22
+          cache: 'pnpm'
 
-      - run: npm ci
+      - run: pnpm install --frozen-lockfile
 
-      - run: npx nx run-many -t lint test build
+      - run: pnpm nx run-many -t lint test build
 
-      - run: npx nx-cloud fix-ci
+      - run: pnpm nx-cloud fix-ci
         if: always()
