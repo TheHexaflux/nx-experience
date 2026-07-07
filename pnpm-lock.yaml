@@ -81,6 +81,15 @@ importers:
         specifier: ~4.1.0
         version: 4.1.10(@types/node@20.19.9)(@vitest/coverage-v8@4.1.10)(@vitest/ui@4.1.10)(vite@8.1.3(@types/node@20.19.9)(esbuild@0.28.1)(jiti@2.4.2)(yaml@2.9.0))
 
+  packages/animal:
+    dependencies:
+      '@org/util':
+        specifier: workspace:*
+        version: link:../util
+      tslib:
+        specifier: ^2.3.0
+        version: 2.8.1
+
   packages/async:
     dependencies:
       tslib:
@@ -106,8 +115,26 @@ importers:
         specifier: ^7.0.0
         version: 7.3.6(@types/node@20.19.9)(jiti@2.4.2)(lightningcss@1.32.0)(yaml@2.9.0)
 
+  packages/util:
+    dependencies:
+      tslib:
+        specifier: ^2.3.0
+        version: 2.8.1
+
   packages/utils:
     dependencies:
+      tslib:
+        specifier: ^2.3.0
+        version: 2.8.1
+
+  packages/zoo:
+    dependencies:
+      '@org/animal':
+        specifier: workspace:*
+        version: link:../animal
+      '@org/util':
+        specifier: workspace:*
+        version: link:../util
       tslib:
         specifier: ^2.3.0
         version: 2.8.1
